@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+.slider-component{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  margin: 1rem;
+  padding: 6px 0 6px 12px;
+  
+  box-shadow: 0 0 12px 0 #bbb;
+  border-radius: 6px;
+  text-align: left;
+  overflow-x: scroll;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider-header{
+  width: 100%;
+  display: inline;
+  
+}
+
+.slide-item{
+  flex-direction: row;
+  margin: 0.25rem;
+  padding: 1rem;
+  font-size: 2.5rem;  
+}
+
+.slide-item.active{
+  color: #005e51;
+}
