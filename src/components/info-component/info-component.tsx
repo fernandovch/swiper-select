@@ -1,4 +1,4 @@
-import { Component,h, State, Event  } from '@stencil/core';
+import { Component,h, State, Event, Prop  } from '@stencil/core';
 import { EventEmitter } from 'puppeteer';
 
 
@@ -8,19 +8,15 @@ import { EventEmitter } from 'puppeteer';
   shadow: true,
 })
 
-
-
 export class InfoComponent {
 
-  amount:number = 55
-
-  @State() count  = 0
+  @Prop() amountValue : string 
+  @Prop() footerText : string 
 
   @Event() editTrigger : EventEmitter
 
   editEvent = ()=>
   {
-    this.count ++     
     this.editTrigger.emit("true")
   }
 
@@ -29,10 +25,10 @@ export class InfoComponent {
       <host>
           <div class="info-component">
             <div class="info-amount">
-              <span>{this.amount}</span>
+              <span>{this.amountValue || 0}</span>
             </div>
             <div class="info-footer">
-                <div class="text">$ / Month {this.count}</div>
+                <div class="text">{this.footerText}</div>
                 <div class="btn"><a onClick={()=>this.editEvent()}>Edit</a></div>
             </div>
           </div>

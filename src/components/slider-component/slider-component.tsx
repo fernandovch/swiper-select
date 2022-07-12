@@ -8,9 +8,11 @@ import { EventEmitter } from 'puppeteer';
 })
 
 export class SliderComponent {
-  @Prop() currentChoice:number
 
-  values: number[] = [10,20,30,40,50,60]
+  @Prop() currentChoice:any
+  @Prop() footerText:string
+
+  values: number[] = [36,40,45,50,55,60,70,75,80]
   
   @State() currentItem: number = 1
   
@@ -29,10 +31,8 @@ export class SliderComponent {
     }
   }
 
+
   render() {
-
-   
-
     return (
       <Host>
          <div class="slider-container">
@@ -44,11 +44,14 @@ export class SliderComponent {
               {this.values.map((item, index)=>{
                 let printDiv = index >= this.currentItem - 2 
                 if(printDiv)  
-                  return <div class={this.currentItem == index+1 ?'slide-item active': "slide-item" } >{item}</div>
+                  return <div class={this.currentItem == index+1 ?'slide-item active': "slide-item" } 
+                    id={index.toString()} >
+                    <i id={index.toString()}> {item}</i>  
+                  </div>
                 })
               }
           </div>     
-          <div class="slider-header"><span>$ / Month</span></div>
+          <div class="slider-header"><span>{this.footerText}</span></div>
           </div>
       </Host>
     );

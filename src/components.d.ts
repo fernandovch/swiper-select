@@ -7,11 +7,15 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface InfoComponent {
+        "amountValue": string;
+        "footerText": string;
     }
     interface SliderComponent {
-        "currentChoice": number;
+        "currentChoice": any;
+        "footerText": string;
     }
     interface SwiperComponent {
+        "amountValue": number;
     }
 }
 export interface InfoComponentCustomEvent<T> extends CustomEvent<T> {
@@ -49,13 +53,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface InfoComponent {
+        "amountValue"?: string;
+        "footerText"?: string;
         "onEditTrigger"?: (event: InfoComponentCustomEvent<any>) => void;
     }
     interface SliderComponent {
-        "currentChoice"?: number;
+        "currentChoice"?: any;
+        "footerText"?: string;
         "onKeyDownEvent"?: (event: SliderComponentCustomEvent<any>) => void;
     }
     interface SwiperComponent {
+        "amountValue"?: number;
     }
     interface IntrinsicElements {
         "info-component": InfoComponent;

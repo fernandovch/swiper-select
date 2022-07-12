@@ -11,7 +11,7 @@
 }
 
 .slider-container{
-  width: 250px;
+  width: 300px;
   height: fit-content;
   margin: 0 auto  ;
   border-radius: 6px;
@@ -45,14 +45,28 @@
   padding: 1rem;
   font-size: 2.5rem;  
   color: #005e51;
+
 }
 
-.slide-item{
+.slide-item {
   transform: translateX(50%);
   box-shadow:  0 0 8px 5px #ffffff;
+  background: linear-gradient(to left, transparent 0%, #737272 300%);
+
 }
+.slider-item i{
+  text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	}
+
 
 .slide-item.active{
   color: #5c9702;
- 
+  background: #ffffff;
 }
+
+.slide-item.active + *{
+  background: linear-gradient(to right, transparent 0%, #737272 300%);
+
+}
+
