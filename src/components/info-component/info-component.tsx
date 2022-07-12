@@ -1,4 +1,4 @@
-import { Component,h, State, Event, Prop  } from '@stencil/core';
+import { Component,h, Event, Prop  } from '@stencil/core';
 import { EventEmitter } from 'puppeteer';
 
 
@@ -10,13 +10,16 @@ import { EventEmitter } from 'puppeteer';
 
 export class InfoComponent {
 
+  // props set from the parent component
   @Prop() amountValue : string 
   @Prop() footerText : string 
 
+  // Event used to set the hide/ show event to components
   @Event() editTrigger : EventEmitter
 
   editEvent = ()=>
   {
+    // triggers the event 
     this.editTrigger.emit("true")
   }
 

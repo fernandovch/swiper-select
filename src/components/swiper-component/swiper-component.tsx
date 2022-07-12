@@ -1,4 +1,4 @@
-import { Component, Host, h, Listen, State, Prop , Element} from '@stencil/core';
+import { Component, Host, h, Listen, State, Element} from '@stencil/core';
 
 
 @Component({
@@ -8,23 +8,20 @@ import { Component, Host, h, Listen, State, Prop , Element} from '@stencil/core'
 })
 export class SwiperComponent {
 
+  // use for hiding and showing the components
   @State() showEdit : boolean = true
 
+  // element helps bind the root component of the html, use for getting the props values set on the html
   @Element() el: HTMLElement;
 
-
-  @Prop() amountValue : number 
-
+  // trigger when click on the Edit link button
   @Listen('editTrigger')
-  editTriggerHandler(data) {
-    console.log('Received the custom todoCompleted event: ', data);
+  editTriggerHandler() {
     this.showEdit=false
   }
 
-
   render() {
     this.el.getAttribute("amountValue")
-    console.log(this.amountValue)
     return (
       <Host>
         {this.showEdit ? 

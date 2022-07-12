@@ -15,16 +15,11 @@ export namespace Components {
         "footerText": string;
     }
     interface SwiperComponent {
-        "amountValue": number;
     }
 }
 export interface InfoComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInfoComponentElement;
-}
-export interface SliderComponentCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLSliderComponentElement;
 }
 declare global {
     interface HTMLInfoComponentElement extends Components.InfoComponent, HTMLStencilElement {
@@ -60,10 +55,8 @@ declare namespace LocalJSX {
     interface SliderComponent {
         "currentChoice"?: any;
         "footerText"?: string;
-        "onKeyDownEvent"?: (event: SliderComponentCustomEvent<any>) => void;
     }
     interface SwiperComponent {
-        "amountValue"?: number;
     }
     interface IntrinsicElements {
         "info-component": InfoComponent;

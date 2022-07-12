@@ -1,5 +1,4 @@
-import { Component, Host, h, Prop, State, Event,  Element, Listen } from '@stencil/core';
-import { EventEmitter } from 'puppeteer';
+import { Component, Host, h, Prop, State,  Listen } from '@stencil/core';
 
 @Component({
   tag: 'slider-component',
@@ -12,14 +11,13 @@ export class SliderComponent {
   @Prop() currentChoice:any
   @Prop() footerText:string
 
+  //values to be displayed into the slider
   values: number[] = [36,40,45,50,55,60,70,75,80]
   
+  // keeps track of the current value selected
   @State() currentItem: number = 1
   
-  @Event() keyDownEvent : EventEmitter
-
-  @Element() el: HTMLElement;
-  
+  // Event trigger when hitting arrows keys
   @Listen("keydown",{ target: 'window' })
   handleKeys(ev: KeyboardEvent){
      
