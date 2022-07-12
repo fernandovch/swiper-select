@@ -9,7 +9,7 @@ export namespace Components {
     interface InfoComponent {
     }
     interface SliderComponent {
-        "runProp": boolean;
+        "currentChoice": number;
     }
     interface SwiperComponent {
     }
@@ -17,6 +17,10 @@ export namespace Components {
 export interface InfoComponentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInfoComponentElement;
+}
+export interface SliderComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSliderComponentElement;
 }
 declare global {
     interface HTMLInfoComponentElement extends Components.InfoComponent, HTMLStencilElement {
@@ -48,7 +52,8 @@ declare namespace LocalJSX {
         "onEditTrigger"?: (event: InfoComponentCustomEvent<any>) => void;
     }
     interface SliderComponent {
-        "runProp"?: boolean;
+        "currentChoice"?: number;
+        "onKeyDownEvent"?: (event: SliderComponentCustomEvent<any>) => void;
     }
     interface SwiperComponent {
     }

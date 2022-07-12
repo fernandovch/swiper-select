@@ -1,34 +1,58 @@
 :host {
   display: block;
+  overflow: hidden;
+
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.notShow span{
+  color:#ffffff
+}
+
+.slider-container{
+  width: 250px;
+  height: fit-content;
+  margin: 0 auto  ;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider-component::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 .slider-component{
   display: flex;
-  width: 100%;
-  height: fit-content;
-  margin: 1rem;
-  padding: 6px 0 6px 12px;
-  
-  box-shadow: 0 0 12px 0 #bbb;
-  border-radius: 6px;
-  text-align: left;
   overflow-x: scroll;
-  font-family: 'Montserrat', sans-serif;
+
 }
 
 .slider-header{
   width: 100%;
-  display: inline;
-  
+  height: fit-content;
 }
+.slider-header span{
+  display: table;
+  margin: 0 auto;
+}
+
+
 
 .slide-item{
   flex-direction: row;
   margin: 0.25rem;
   padding: 1rem;
   font-size: 2.5rem;  
+  color: #005e51;
+}
+
+.slide-item{
+  transform: translateX(50%);
+  box-shadow:  0 0 8px 5px #ffffff;
 }
 
 .slide-item.active{
-  color: #005e51;
+  color: #5c9702;
+ 
 }
